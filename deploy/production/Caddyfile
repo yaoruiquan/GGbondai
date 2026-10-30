@@ -1,0 +1,156 @@
+# =============================================================================
+# GGbond AI 生产 Caddy 反向代理（容器化，DEP-002）
+# =============================================================================
+# 说明：
+#   - 域名来自环境变量 {$GGBONDAI_DOMAIN}，在 docker-compose.yml 的 caddy.environment
+#     或 .env 中设置为你的个人站域名。
+#   - 使用域名模式时 Caddy 默认自动签发 Let's Encrypt 证书并启用 HTTPS，
+#     HTTP(80) 会自动 301 跳转到 HTTPS(443)，无需额外配置。
+#   - 反代目标是容器服务名 sub2api:8080（内部网络），不是 localhost。
+#   - 流式响应（SSE / 逐 token 返回）关键：flush_interval -1 立即刷新、禁用缓冲。
+# =============================================================================
+
+{
+	# ACME 注册邮箱（证书到期通知）。为空时 Caddy 仍可签发，仅无邮件通知。
+	email {$GGBONDAI_ACME_EMAIL}
+	# 如需调试证书问题，可临时切到 staging，避免触发 LE 生产限流：
+	# acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+}
+
+{$GGBONDAI_DOMAIN} {
+	# =========================================================================
+	# 静态资源长期缓存（高优先级，放在最前面）
+	# 带 hash 的文件可以永久缓存，浏览器和 CDN 都会缓存
+	# =========================================================================
+	@static {
+		path /assets/*
+		path /logo.png
+		path /favicon.ico
+	}
+	header @static {
+		Cache-Control "public, max-age=31536000, immutable"
+		-Pragma
+		-Expires
+	}
+
+	# =========================================================================
+	# TLS 安全配置（证书由 Caddy 自动向 Let's Encrypt 申请与续期）
+	# =========================================================================
+	tls {$GGBONDAI_ACME_EMAIL} {
+		protocols tls1.2 tls1.3
+	}
+
+	# =========================================================================
+	# 反向代理到应用容器（蓝绿双 upstream，内部网络）
+	# =========================================================================
+	# 同时列出 blue/green 两个实例。lb_policy first = 按顺序选第一个「健康」的，
+	# 配合主动健康检查（health_uri /health），实现零中断蓝绿切换：
+	#   - 平时只跑一个色，另一色 DNS 不可达 / 探活失败 → 被标记 unhealthy，
+	#     流量只走在线的那个；
+	#   - 切换时新色先起来变 healthy，再停旧色，Caddy 3s 内探测到旧色 down
+	#     并自动摘除，全程至少一个健康 upstream 在线。
+	# 说明：平时那一色未运行时，健康检查会周期性产生 dial 失败日志（属预期噪声，
+	#      不影响流量）。切换脚本见 deploy/production/switch.sh。
+	reverse_proxy sub2api-blue:8080 sub2api-green:8080 {
+		# ---- 健康检查（主动）----
+		# 间隔必须远小于 switch.sh 的观察窗口（OBSERVE_SECONDS，默认 10s）：
+		# 停旧色前 Caddy 必须已探测到新色健康，否则两色都被判不可用 → 503。
+		# 3s 间隔保证观察窗口内至少探测 3 次。
+		# 代价：平时非活跃色不存在，会每 3s 打一条 DNS 查不到的 INFO 日志。
+		# 这是预期噪声（日志已配 roll），不要为消噪把间隔调大。
+		health_uri /health
+		health_interval 3s
+		health_timeout 2s
+		health_status 200
+
+		# ---- 负载均衡：first = 优先第一个健康 upstream（蓝绿关键）----
+		# 与 round_robin 不同：只要靠前的健康就一直用它，不会在两色间轮流，
+		# 保证切换是「整体从旧色迁到新色」而非请求级混发。
+		lb_policy first
+		lb_try_duration 5s
+		lb_try_interval 250ms
+
+		# ---- 被动健康检查：连接失败即临时摘除，配合主动检查更快失败转移 ----
+		fail_duration 10s
+		max_fails 1
+
+		# ---- 流式响应关键：禁用缓冲，逐块立即 flush 给客户端 ----
+		# -1 表示每次写入立即刷新，保证 SSE / 逐 token 流式实时返回，
+		# 不会被反代攒批缓冲（Caddy 默认已不缓冲，这里显式声明以确保）。
+		flush_interval -1
+
+		# ---- 透传真实客户端信息 ----
+		# 后端获取 IP 的建议优先级：CF-Connecting-IP → X-Real-IP → X-Forwarded-For
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+		# 保留 Cloudflare 原始头（若存在），兼容 CF 前置场景
+		header_up CF-Connecting-IP {http.request.header.CF-Connecting-IP}
+
+		# ---- 传输层超时与连接池 ----
+		# 流式接口可能长时间保持连接，读超时给足；写超时不设短值，
+		# dial_timeout 控制到上游建连超时。
+		transport http {
+			dial_timeout 10s
+			# 流式友好：读超时给到较长值以承载长连接 SSE 响应
+			read_timeout 600s
+			write_timeout 600s
+			keepalive 120s
+			keepalive_idle_conns 256
+			read_buffer 16KB
+			write_buffer 16KB
+			compression off
+		}
+
+		# 推理请求的业务 5xx 不代表应用实例故障，避免连带摘除管理页面。
+		# 实例健康由 /health 主动探活和连接失败的被动检查判断。
+	}
+
+	# =========================================================================
+	# 压缩配置（流式 SSE 一般为 text/event-stream，不在下列 match 内，不会被压缩缓冲）
+	# =========================================================================
+	encode {
+		zstd
+		gzip 6
+		minimum_length 256
+		match {
+			header Content-Type text/html*
+			header Content-Type text/css*
+			header Content-Type text/plain*
+			header Content-Type application/json*
+			header Content-Type application/javascript*
+			header Content-Type application/xml*
+			header Content-Type application/rss+xml*
+			header Content-Type image/svg+xml*
+		}
+	}
+
+	# =========================================================================
+	# 请求体大小限制（防止大文件攻击，可按需调整）
+	# =========================================================================
+	request_body {
+		max_size 100MB
+	}
+
+	# =========================================================================
+	# 访问日志（json + 滚动）
+	# =========================================================================
+	log {
+		output file /var/log/caddy/ggbond.log {
+			roll_size 50mb
+			roll_keep 10
+			roll_keep_for 720h
+		}
+		format json
+		level INFO
+	}
+
+	# =========================================================================
+	# 错误处理
+	# =========================================================================
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+}
+

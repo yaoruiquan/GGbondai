@@ -20,22 +20,11 @@
             >404</span
           >
           <div class="absolute inset-0 flex items-center justify-center">
+            <!-- 迷路的猪猪侠 -->
             <div
-              class="flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-lg shadow-primary-500/30"
+              class="flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-accent-50 shadow-lg shadow-primary-500/30 ring-1 ring-primary-500/15 dark:from-primary-900/30 dark:to-accent-900/30"
             >
-              <svg
-                class="h-12 w-12 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                />
-              </svg>
+              <img src="/ggbond-logo.svg" alt="" class="h-20 w-20 animate-wiggle motion-reduce:animate-none" />
             </div>
           </div>
         </div>

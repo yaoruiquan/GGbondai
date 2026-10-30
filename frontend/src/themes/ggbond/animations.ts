@@ -50,8 +50,8 @@ export const keyframes = {
     '100%': { backgroundPosition: '200% 0' }
   },
   glow: {
-    '0%': { boxShadow: '0 0 20px rgba(255, 105, 180, 0.3)' },
-    '100%': { boxShadow: '0 0 30px rgba(255, 105, 180, 0.5)' }
+    '0%': { boxShadow: '0 0 20px rgba(219, 39, 119, 0.3)' },
+    '100%': { boxShadow: '0 0 30px rgba(219, 39, 119, 0.5)' }
   },
 
   // 猪猪侠主题新增动画

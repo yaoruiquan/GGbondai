@@ -1,3 +1,49 @@
+// 猪猪侠主题色阶。primary/accent 与 ggbond-* 共用同一份数据。
+// 500 及以上与白色对比度 >= 4.5（WCAG AA），可用于白字按钮和白底正文；
+// 品牌亮粉 #FF69B4 放在 400，只用于装饰（光晕、Logo、暗色模式文字）。
+const pink = {
+  50: '#FFF0F7',
+  100: '#FFE1EF',
+  200: '#FFC2DF',
+  300: '#FF94C6',
+  400: '#FF69B4',
+  500: '#DB2777',
+  600: '#C70A72',
+  700: '#A50D5E',
+  800: '#8A0A50',
+  900: '#6B0842',
+  950: '#42042A'
+}
+
+const purple = {
+  50: '#F5F3FF',
+  100: '#EDE9FE',
+  200: '#DDD6FE',
+  300: '#C4B5FD',
+  400: '#A78BFA',
+  500: '#6A5ACD',
+  600: '#5B4BC6',
+  700: '#4B3BB8',
+  800: '#3C2C9E',
+  900: '#4B0082',
+  950: '#2D004E'
+}
+
+// 金色只配深色文字（#FFD700 与白字对比度仅 1.4）
+const gold = {
+  50: '#FFFBEB',
+  100: '#FEF3C7',
+  200: '#FDE68A',
+  300: '#FCD34D',
+  400: '#FBBF24',
+  500: '#FFD700',
+  600: '#D97706',
+  700: '#B45309',
+  800: '#92400E',
+  900: '#78350F',
+  950: '#451A03'
+}
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -5,75 +51,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // GGbond AI brand colors - 猪猪侠主题粉红色
-        primary: {
-          50: '#FFF0F5',
-          100: '#FFE4E9',
-          200: '#FFC9D3',
-          300: '#FFA3B8',
-          400: '#FF7D9C',
-          500: '#FF69B4',  // 主色：猪猪侠粉红
-          600: '#FF1493',
-          700: '#DB0A7B',
-          800: '#B7096A',
-          900: '#930857',
-          950: '#6B0442'
-        },
-        // 辅助色 - 紫蓝色（猪猪侠战甲色）
-        accent: {
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#DDD6FE',
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#6A5ACD',  // 紫蓝主色
-          600: '#5B4BC6',
-          700: '#4B3BB8',
-          800: '#3C2C9E',
-          900: '#4B0082',
-          950: '#2D004E'
-        },
-
-        // 猪猪侠主题专属配色（扁平化，生成 text-ggbond-pink-500 等工具类）
-        'ggbond-pink': {
-          50: '#FFF0F5',
-          100: '#FFE4E9',
-          200: '#FFC9D3',
-          300: '#FFA3B8',
-          400: '#FF7D9C',
-          500: '#FF69B4',
-          600: '#FF1493',
-          700: '#DB0A7B',
-          800: '#B7096A',
-          900: '#930857',
-          950: '#6B0442'
-        },
-        'ggbond-purple': {
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#DDD6FE',
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#6A5ACD',
-          600: '#5B4BC6',
-          700: '#4B3BB8',
-          800: '#3C2C9E',
-          900: '#4B0082',
-          950: '#2D004E'
-        },
-        'ggbond-gold': {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#FFD700',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
-          950: '#451A03'
-        },
+        primary: pink,
+        accent: purple,
+        'ggbond-pink': pink,
+        'ggbond-purple': purple,
+        'ggbond-gold': gold,
         'ggbond-sky': {
           50: '#F0F9FF',
           100: '#E0F2FE',
@@ -121,22 +103,22 @@ export default {
       boxShadow: {
         glass: '0 8px 32px rgba(0, 0, 0, 0.08)',
         'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.06)',
-        glow: '0 0 20px rgba(255, 105, 180, 0.3)',
-        'glow-lg': '0 0 40px rgba(255, 105, 180, 0.4)',
-        'glow-pink': '0 4px 20px rgba(255, 105, 180, 0.35)',
+        glow: '0 0 20px rgba(219, 39, 119, 0.3)',
+        'glow-lg': '0 0 40px rgba(219, 39, 119, 0.4)',
+        'glow-pink': '0 4px 20px rgba(219, 39, 119, 0.35)',
         'glow-purple': '0 4px 20px rgba(106, 90, 205, 0.35)',
         'glow-gold': '0 4px 20px rgba(255, 215, 0, 0.35)',
         card: '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
-        'card-ggbond': '0 4px 16px rgba(255, 105, 180, 0.12), 0 2px 8px rgba(106, 90, 205, 0.08)',
+        'card-ggbond': '0 4px 16px rgba(219, 39, 119, 0.12), 0 2px 8px rgba(106, 90, 205, 0.08)',
         'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-        'inner-glow-pink': 'inset 0 2px 8px rgba(255, 105, 180, 0.15)',
-        'button-ggbond': '0 4px 12px rgba(255, 105, 180, 0.3)',
+        'inner-glow-pink': 'inset 0 2px 8px rgba(219, 39, 119, 0.15)',
+        'button-ggbond': '0 4px 12px rgba(219, 39, 119, 0.3)',
         'button-gold': '0 4px 12px rgba(255, 215, 0, 0.4)'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #FF69B4 0%, #FF1493 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #DB2777 0%, #C70A72 100%)',
         'gradient-purple': 'linear-gradient(135deg, #6A5ACD 0%, #4B0082 100%)',
         'gradient-gold': 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
         'gradient-dark': 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
@@ -187,8 +169,8 @@ export default {
           '100%': { backgroundPosition: '200% 0' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(255, 105, 180, 0.3)' },
-          '100%': { boxShadow: '0 0 30px rgba(255, 105, 180, 0.5)' }
+          '0%': { boxShadow: '0 0 20px rgba(219, 39, 119, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(219, 39, 119, 0.5)' }
         },
         // 猪猪侠主题新增动画
         wiggle: {

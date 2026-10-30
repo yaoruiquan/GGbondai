@@ -77,8 +77,8 @@
     </header>
 
     <main class="relative z-10">
-      <section class="mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-24 lg:pt-24">
-        <div class="flex flex-col justify-center">
+      <section class="mx-auto grid min-w-0 max-w-7xl gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-24 lg:pt-24">
+        <div class="flex min-w-0 flex-col justify-center">
           <!-- 猪猪侠主题徽章 -->
           <div class="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-ggbond-pink-500/30 bg-gradient-to-r from-ggbond-pink-50 to-ggbond-purple-50 px-4 py-2 text-sm font-medium text-ggbond-purple-700 shadow-sm dark:from-ggbond-pink-900/20 dark:to-ggbond-purple-900/20 dark:text-ggbond-pink-200">
             <span class="h-2 w-2 rounded-full bg-ggbond-pink-500 animate-ping-slow"></span>
@@ -104,9 +104,9 @@
           </div>
         </div>
 
-        <div class="relative flex items-center justify-center lg:justify-end">
+        <div class="relative flex min-w-0 items-center justify-center lg:justify-end">
           <!-- 代码演示卡片 -->
-          <div class="w-full max-w-xl rounded-[2rem] border border-ggbond-pink-200/50 bg-white/85 p-4 shadow-2xl shadow-ggbond-pink-500/10 backdrop-blur-xl dark:border-ggbond-purple-900/30 dark:bg-dark-900/80 dark:shadow-ggbond-pink-900/40">
+          <div class="min-w-0 w-full max-w-xl rounded-[2rem] border border-ggbond-pink-200/50 bg-white/85 p-4 shadow-2xl shadow-ggbond-pink-500/10 backdrop-blur-xl dark:border-ggbond-purple-900/30 dark:bg-dark-900/80 dark:shadow-ggbond-pink-900/40">
             <div class="rounded-[1.5rem] bg-dark-950 p-5 text-white shadow-inner">
               <div class="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
                 <div class="flex items-center gap-2">
@@ -116,7 +116,7 @@
                 </div>
                 <span class="font-mono text-xs text-white/40">api.ggbondai.example.com</span>
               </div>
-              <pre class="overflow-x-auto whitespace-pre-wrap font-mono text-sm leading-7 text-dark-100"><code>{{ codeSample }}</code></pre>
+              <pre class="max-w-full overflow-x-auto whitespace-pre-wrap break-words font-mono text-sm leading-7 text-dark-100"><code>{{ codeSample }}</code></pre>
             </div>
             <!-- 指标卡片 - 猪猪侠配色 -->
             <div class="grid gap-3 pt-4 sm:grid-cols-3">
@@ -172,7 +172,7 @@
         <div class="grid gap-5 md:grid-cols-3">
           <article v-for="(step, index) in integrationSteps" :key="step.title" class="brand-card group">
             <!-- 猪猪侠金黄色步骤标记 -->
-            <div class="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-ggbond-gold-500 to-ggbond-gold-600 text-sm font-bold text-white shadow-lg shadow-ggbond-gold-500/40 transition-all group-hover:scale-110 group-hover:rotate-12">
+            <div class="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-ggbond-gold-400 to-ggbond-gold-500 text-sm font-bold text-gray-950 shadow-lg shadow-ggbond-gold-500/40 transition-all group-hover:scale-110 group-hover:rotate-12">
               {{ index + 1 }}
             </div>
             <h3 class="text-lg font-semibold text-gray-950 dark:text-white">{{ step.title }}</h3>
@@ -221,7 +221,7 @@
     <footer class="relative z-10 border-t border-ggbond-pink-200/30 bg-white/60 py-8 backdrop-blur dark:border-ggbond-purple-900/30 dark:bg-dark-950/70">
       <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm text-gray-500 dark:text-dark-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <BrandLockup :name="siteName" :logo="siteLogo" compact />
-        <p>&copy; {{ currentYear }} {{ t('common.copyrightOwner') }}. {{ t('home.footer.allRightsReserved') }}</p>
+        <p>&copy; {{ currentYear }} {{ siteName }}. {{ t('home.footer.allRightsReserved') }}</p>
       </div>
     </footer>
   </div>
@@ -241,7 +241,7 @@ const authStore = useAuthStore()
 const appStore = useAppStore()
 
 const siteName = computed(() => appStore.cachedPublicSettings?.site_name || appStore.siteName || 'GGbond AI')
-const siteLogo = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '/logo.png', { allowRelative: true, allowDataUrl: true }))
+const siteLogo = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '/ggbond-logo.svg', { allowRelative: true, allowDataUrl: true }))
 const siteSubtitle = computed(
   () => appStore.cachedPublicSettings?.site_subtitle || t('home.heroDescription')
 )

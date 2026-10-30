@@ -75,7 +75,7 @@ shadow-button-gold    /* 金色按钮阴影 */
 75 行删除
 
 新增文件：
-- docs/frontend-refactor-plan.md
+- docs/plans/frontend-refactor.md
 - frontend/public/ggbond-logo.svg
 - frontend/src/assets/ggbond-logo.svg
 - frontend/src/styles/ggbond-theme.css
@@ -181,8 +181,8 @@ shadow-button-gold    /* 金色按钮阴影 */
 
 ## 🔗 相关文档
 
-- [完整重构方案](./frontend-refactor-plan.md)
-- [猪猪侠IP资料](./ggbond-ip-reference.md)（待创建）
+- [完整重构方案](../plans/frontend-refactor.md)
+- [猪猪侠IP资料](../archive/ggbond-ip-reference.md)（已废弃）
 
 ---
 

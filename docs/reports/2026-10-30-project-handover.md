@@ -40,7 +40,7 @@
 5. 如需 GitHub Actions 自动部署，还需设置服务器 SSH 主机、用户、部署路径、私钥和 known_hosts。当前 release workflow 的生产部署 job 被显式禁用，配置完成后需由所有者审阅并启用。
 6. 如需 Antigravity 或 Gemini CLI OAuth 登录，在服务器 `.env` 中成对填写 `ANTIGRAVITY_OAUTH_CLIENT_ID` / `ANTIGRAVITY_OAUTH_CLIENT_SECRET` 或 `GEMINI_CLI_OAUTH_CLIENT_ID` / `GEMINI_CLI_OAUTH_CLIENT_SECRET`，然后重建应用容器；不用对应登录流可留空。不得将真实值提交到 Git。
 
-详细步骤见 [`deploy/production/README.md`](../deploy/production/README.md)。
+详细步骤见 [`deploy/production/README.md`](../../deploy/production/README.md)。
 
 ## 后续注意
 

@@ -1,3 +1,5 @@
+> **已废弃**：本文档的角色外形与配色描述错误（猪猪侠是红色头套、肉色脸，不是粉色皮肤、紫色战甲），以 [plans/landing-redesign.md](../plans/landing-redesign.md) §2 为准。
+
 # 猪猪侠（GGBond）IP 设计资料
 
 **来源**: 中国动画片《猪猪侠》  

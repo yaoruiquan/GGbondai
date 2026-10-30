@@ -1,3 +1,5 @@
+> **注意**：本文档中关于猪猪侠角色与配色的描述已被 [landing-redesign.md](landing-redesign.md) §2 取代。
+
 # GGbondai 前端重构方案
 
 **版本**: 1.0  
@@ -513,7 +515,7 @@ h4: 16px / font-medium / text-gray-700
 3. [ ] 初始化新主题文件结构
 
 ### 参考资源
-- 猪猪侠 IP 资料：见本项目 `/docs/ggbond-ip-reference.md`
+- 猪猪侠 IP 资料：见 `docs/archive/ggbond-ip-reference.md`（已废弃，配色以 `plans/landing-redesign.md` 为准）
 - 当前设计系统：`frontend/tailwind.config.js`
 - 组件库文档：`frontend/src/components/README.md`（如有）
 

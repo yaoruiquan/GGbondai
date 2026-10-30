@@ -1,0 +1,41 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 猪猪侠简化 Logo: 圆润粉色猪头 -->
+  <!-- 主头部 -->
+  <circle cx="24" cy="24" r="20" fill="#FF69B4"/>
+
+  <!-- 左耳朵 -->
+  <ellipse cx="12" cy="12" rx="6" ry="8" fill="#FF8DC7" transform="rotate(-20 12 12)"/>
+
+  <!-- 右耳朵 -->
+  <ellipse cx="36" cy="12" rx="6" ry="8" fill="#FF8DC7" transform="rotate(20 36 12)"/>
+
+  <!-- 左眼睛 -->
+  <circle cx="17" cy="22" r="3.5" fill="#000"/>
+  <circle cx="18" cy="21" r="1.2" fill="#FFF"/>
+
+  <!-- 右眼睛 -->
+  <circle cx="31" cy="22" r="3.5" fill="#000"/>
+  <circle cx="32" cy="21" r="1.2" fill="#FFF"/>
+
+  <!-- 鼻子 -->
+  <ellipse cx="24" cy="30" rx="5" ry="4" fill="#FF1493"/>
+  <circle cx="22" cy="29" r="1" fill="#FFF" opacity="0.6"/>
+
+  <!-- 嘴巴（笑容） -->
+  <path d="M 18 33 Q 24 36 30 33" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 腮红 -->
+  <ellipse cx="12" cy="28" rx="3" ry="2" fill="#FF1493" opacity="0.3"/>
+  <ellipse cx="36" cy="28" rx="3" ry="2" fill="#FF1493" opacity="0.3"/>
+
+  <!-- 紫蓝色光环（科技感） -->
+  <circle cx="24" cy="24" r="22" stroke="#6A5ACD" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="4 4">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 24 24"
+      to="360 24 24"
+      dur="20s"
+      repeatCount="indefinite"/>
+  </circle>
+</svg>

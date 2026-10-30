@@ -5,33 +5,93 @@ export default {
   theme: {
     extend: {
       colors: {
-        // GGbond AI brand colors.
+        // GGbond AI brand colors - 猪猪侠主题粉红色
         primary: {
-          50: '#fff4ed',
-          100: '#ffe6d5',
-          200: '#ffc8a8',
-          300: '#ff9e70',
-          400: '#ff6b36',
-          500: '#EB3F00',
-          600: '#d83200',
-          700: '#b72700',
-          800: '#932407',
-          900: '#762208',
-          950: '#401003'
+          50: '#FFF0F5',
+          100: '#FFE4E9',
+          200: '#FFC9D3',
+          300: '#FFA3B8',
+          400: '#FF7D9C',
+          500: '#FF69B4',  // 主色：猪猪侠粉红
+          600: '#FF1493',
+          700: '#DB0A7B',
+          800: '#B7096A',
+          900: '#930857',
+          950: '#6B0442'
         },
-        // 辅助色 - 深蓝灰
+        // 辅助色 - 紫蓝色（猪猪侠战甲色）
         accent: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617'
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          200: '#DDD6FE',
+          300: '#C4B5FD',
+          400: '#A78BFA',
+          500: '#6A5ACD',  // 紫蓝主色
+          600: '#5B4BC6',
+          700: '#4B3BB8',
+          800: '#3C2C9E',
+          900: '#4B0082',
+          950: '#2D004E'
+        },
+
+        // 猪猪侠主题专属配色
+        ggbond: {
+          // 粉红色系
+          pink: {
+            50: '#FFF0F5',
+            100: '#FFE4E9',
+            200: '#FFC9D3',
+            300: '#FFA3B8',
+            400: '#FF7D9C',
+            500: '#FF69B4',
+            600: '#FF1493',
+            700: '#DB0A7B',
+            800: '#B7096A',
+            900: '#930857',
+            950: '#6B0442'
+          },
+          // 紫蓝色系
+          purple: {
+            50: '#F5F3FF',
+            100: '#EDE9FE',
+            200: '#DDD6FE',
+            300: '#C4B5FD',
+            400: '#A78BFA',
+            500: '#6A5ACD',
+            600: '#5B4BC6',
+            700: '#4B3BB8',
+            800: '#3C2C9E',
+            900: '#4B0082',
+            950: '#2D004E'
+          },
+          // 金黄色系（能量色）
+          gold: {
+            50: '#FFFBEB',
+            100: '#FEF3C7',
+            200: '#FDE68A',
+            300: '#FCD34D',
+            400: '#FBBF24',
+            500: '#FFD700',
+            600: '#D97706',
+            700: '#B45309',
+            800: '#92400E',
+            900: '#78350F',
+            950: '#451A03'
+          },
+          // 天蓝色系（清新点缀）
+          sky: {
+            50: '#F0F9FF',
+            100: '#E0F2FE',
+            200: '#BAE6FD',
+            300: '#7DD3FC',
+            400: '#38BDF8',
+            500: '#00CED1',
+            600: '#0284C7',
+            700: '#0369A1',
+            800: '#075985',
+            900: '#0C4A6E',
+            950: '#082F49'
+          }
         },
         // 深色模式背景
         dark: {
@@ -67,20 +127,29 @@ export default {
       boxShadow: {
         glass: '0 8px 32px rgba(0, 0, 0, 0.08)',
         'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.06)',
-        glow: '0 0 20px rgba(235, 63, 0, 0.25)',
-        'glow-lg': '0 0 40px rgba(235, 63, 0, 0.35)',
+        glow: '0 0 20px rgba(255, 105, 180, 0.3)',
+        'glow-lg': '0 0 40px rgba(255, 105, 180, 0.4)',
+        'glow-pink': '0 4px 20px rgba(255, 105, 180, 0.35)',
+        'glow-purple': '0 4px 20px rgba(106, 90, 205, 0.35)',
+        'glow-gold': '0 4px 20px rgba(255, 215, 0, 0.35)',
         card: '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
-        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+        'card-ggbond': '0 4px 16px rgba(255, 105, 180, 0.12), 0 2px 8px rgba(106, 90, 205, 0.08)',
+        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+        'inner-glow-pink': 'inset 0 2px 8px rgba(255, 105, 180, 0.15)',
+        'button-ggbond': '0 4px 12px rgba(255, 105, 180, 0.3)',
+        'button-gold': '0 4px 12px rgba(255, 215, 0, 0.4)'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #EB3F00 0%, #b72700 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #FF69B4 0%, #FF1493 100%)',
+        'gradient-purple': 'linear-gradient(135deg, #6A5ACD 0%, #4B0082 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
         'gradient-dark': 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
         'gradient-glass':
           'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
         'mesh-gradient':
-          'radial-gradient(at 40% 20%, rgba(235, 63, 0, 0.12) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(255, 158, 112, 0.08) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(235, 63, 0, 0.08) 0px, transparent 50%)'
+          'radial-gradient(at 40% 20%, rgba(255, 105, 180, 0.15) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(106, 90, 205, 0.12) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(255, 215, 0, 0.08) 0px, transparent 50%)'
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-out',
@@ -90,7 +159,13 @@ export default {
         'scale-in': 'scaleIn 0.2s ease-out',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         shimmer: 'shimmer 2s linear infinite',
-        glow: 'glow 2s ease-in-out infinite alternate'
+        glow: 'glow 2s ease-in-out infinite alternate',
+        // 猪猪侠主题新增动画
+        'bounce-slow': 'bounce 2s infinite',
+        'wiggle': 'wiggle 1s ease-in-out infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'spin-slow': 'spin 3s linear infinite',
+        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite'
       },
       keyframes: {
         fadeIn: {
@@ -118,15 +193,25 @@ export default {
           '100%': { backgroundPosition: '200% 0' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(235, 63, 0, 0.25)' },
-          '100%': { boxShadow: '0 0 30px rgba(235, 63, 0, 0.4)' }
+          '0%': { boxShadow: '0 0 20px rgba(255, 105, 180, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(255, 105, 180, 0.5)' }
+        },
+        // 猪猪侠主题新增动画
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' }
         }
       },
       backdropBlur: {
         xs: '2px'
       },
       borderRadius: {
-        '4xl': '2rem'
+        '4xl': '2rem',
+        'ggbond': '16px'  // 猪猪侠主题圆角
       }
     }
   },

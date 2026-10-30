@@ -1,7 +1,8 @@
 <template>
   <div class="inline-flex items-center gap-3" :class="compact ? 'gap-2.5' : 'gap-3'">
+    <!-- 猪猪侠主题 Logo 容器 -->
     <div
-      class="flex shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg shadow-primary-500/20 ring-1 ring-primary-500/10 dark:bg-dark-900 dark:ring-white/10"
+      class="flex shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-ggbond-pink-50 to-ggbond-purple-50 shadow-lg shadow-ggbond-pink-500/20 ring-1 ring-ggbond-pink-500/15 dark:from-ggbond-pink-900/20 dark:to-ggbond-purple-900/20 dark:ring-ggbond-purple-500/20"
       :class="compact ? 'h-10 w-10' : 'h-12 w-12'"
     >
       <img :src="resolvedLogo" :alt="name" class="h-full w-full object-contain" />
@@ -15,7 +16,7 @@
       </p>
       <p
         v-if="subtitle"
-        class="truncate text-xs font-medium uppercase tracking-[0.24em] text-primary-600 dark:text-primary-300"
+        class="truncate text-xs font-medium uppercase tracking-[0.24em] text-ggbond-pink-600 dark:text-ggbond-pink-400"
       >
         {{ subtitle }}
       </p>
@@ -45,6 +46,6 @@ const props = withDefaults(
 )
 
 const resolvedLogo = computed(
-  () => sanitizeUrl(props.logo || '/logo.png', { allowRelative: true, allowDataUrl: true }) || '/logo.png'
+  () => sanitizeUrl(props.logo || '/ggbond-logo.svg', { allowRelative: true, allowDataUrl: true }) || '/ggbond-logo.svg'
 )
 </script>

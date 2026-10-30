@@ -4,11 +4,11 @@ import OrdersView from '../OrdersView.vue'
 
 const messages: Record<string, string> = {
   'common.noData': '暂无数据',
-  'longdao.finance.orders.badge': '财务中心',
-  'longdao.finance.orders.title': '订单记录',
-  'longdao.finance.orders.description': '查看真实支付订单。',
-  'longdao.finance.orders.emptyTitle': '暂无订单',
-  'longdao.finance.orders.emptyDescription': '支付后端尚未接入，因此当前没有可展示的真实订单。',
+  'ggbond.finance.orders.badge': '财务中心',
+  'ggbond.finance.orders.title': '订单记录',
+  'ggbond.finance.orders.description': '查看真实支付订单。',
+  'ggbond.finance.orders.emptyTitle': '暂无订单',
+  'ggbond.finance.orders.emptyDescription': '支付后端尚未接入，因此当前没有可展示的真实订单。',
 }
 
 vi.mock('vue-i18n', async () => {

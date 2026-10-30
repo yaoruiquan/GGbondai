@@ -3,11 +3,11 @@ import { describe, expect, it, vi } from 'vitest'
 import ConstructionState from '../ConstructionState.vue'
 
 const messages: Record<string, string> = {
-  'longdao.adminConstruction.badge': '建设中',
-  'longdao.adminConstruction.futureCapabilities': '未来能力',
-  'longdao.adminConstruction.statusTitle': '接入状态',
-  'longdao.adminConstruction.statusDescription': '后端接口和数据流尚未接入。',
-  'longdao.adminConstruction.disabledNotice': '当前页面仅用于导航占位，不提供可执行操作。',
+  'ggbond.adminConstruction.badge': '建设中',
+  'ggbond.adminConstruction.futureCapabilities': '未来能力',
+  'ggbond.adminConstruction.statusTitle': '接入状态',
+  'ggbond.adminConstruction.statusDescription': '后端接口和数据流尚未接入。',
+  'ggbond.adminConstruction.disabledNotice': '当前页面仅用于导航占位，不提供可执行操作。',
   title: '支付订单管理',
   description: '统一展示待建设的支付订单能力。',
   capabilityA: '订单检索',

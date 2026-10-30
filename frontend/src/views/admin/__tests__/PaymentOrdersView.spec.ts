@@ -3,17 +3,17 @@ import { describe, expect, it, vi } from 'vitest'
 import PaymentOrdersView from '../PaymentOrdersView.vue'
 
 const messages: Record<string, string> = {
-  'longdao.adminConstruction.badge': '功能建设中',
-  'longdao.adminConstruction.futureCapabilities': '未来能力',
-  'longdao.adminConstruction.statusTitle': '接入状态',
-  'longdao.adminConstruction.statusDescription': '后台服务尚未接入。',
-  'longdao.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
-  'longdao.adminConstruction.paymentOrders.title': '支付订单',
-  'longdao.adminConstruction.paymentOrders.description': '用于查看和处理支付订单。',
-  'longdao.adminConstruction.paymentOrders.capabilities.search': '订单检索',
-  'longdao.adminConstruction.paymentOrders.capabilities.reconciliation': '支付对账',
-  'longdao.adminConstruction.paymentOrders.capabilities.refunds': '退款处理',
-  'longdao.adminConstruction.paymentOrders.capabilities.export': '订单导出',
+  'ggbond.adminConstruction.badge': '功能建设中',
+  'ggbond.adminConstruction.futureCapabilities': '未来能力',
+  'ggbond.adminConstruction.statusTitle': '接入状态',
+  'ggbond.adminConstruction.statusDescription': '后台服务尚未接入。',
+  'ggbond.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
+  'ggbond.adminConstruction.paymentOrders.title': '支付订单',
+  'ggbond.adminConstruction.paymentOrders.description': '用于查看和处理支付订单。',
+  'ggbond.adminConstruction.paymentOrders.capabilities.search': '订单检索',
+  'ggbond.adminConstruction.paymentOrders.capabilities.reconciliation': '支付对账',
+  'ggbond.adminConstruction.paymentOrders.capabilities.refunds': '退款处理',
+  'ggbond.adminConstruction.paymentOrders.capabilities.export': '订单导出',
 }
 
 vi.mock('vue-i18n', async () => {

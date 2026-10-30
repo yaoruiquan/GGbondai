@@ -3,17 +3,17 @@ import { describe, expect, it, vi } from 'vitest'
 import FundTransactionsView from '../FundTransactionsView.vue'
 
 const messages: Record<string, string> = {
-  'longdao.adminConstruction.badge': '功能建设中',
-  'longdao.adminConstruction.futureCapabilities': '未来能力',
-  'longdao.adminConstruction.statusTitle': '接入状态',
-  'longdao.adminConstruction.statusDescription': '后台服务尚未接入。',
-  'longdao.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
-  'longdao.adminConstruction.fundTransactions.title': '资金流水',
-  'longdao.adminConstruction.fundTransactions.description': '用于审计余额和资金变动。',
-  'longdao.adminConstruction.fundTransactions.capabilities.ledger': '流水台账',
-  'longdao.adminConstruction.fundTransactions.capabilities.adjustments': '余额调整',
-  'longdao.adminConstruction.fundTransactions.capabilities.auditTrail': '审计追踪',
-  'longdao.adminConstruction.fundTransactions.capabilities.export': '流水导出',
+  'ggbond.adminConstruction.badge': '功能建设中',
+  'ggbond.adminConstruction.futureCapabilities': '未来能力',
+  'ggbond.adminConstruction.statusTitle': '接入状态',
+  'ggbond.adminConstruction.statusDescription': '后台服务尚未接入。',
+  'ggbond.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
+  'ggbond.adminConstruction.fundTransactions.title': '资金流水',
+  'ggbond.adminConstruction.fundTransactions.description': '用于审计余额和资金变动。',
+  'ggbond.adminConstruction.fundTransactions.capabilities.ledger': '流水台账',
+  'ggbond.adminConstruction.fundTransactions.capabilities.adjustments': '余额调整',
+  'ggbond.adminConstruction.fundTransactions.capabilities.auditTrail': '审计追踪',
+  'ggbond.adminConstruction.fundTransactions.capabilities.export': '流水导出',
 }
 
 vi.mock('vue-i18n', async () => {

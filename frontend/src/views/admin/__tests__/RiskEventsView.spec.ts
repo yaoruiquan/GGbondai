@@ -3,17 +3,17 @@ import { describe, expect, it, vi } from 'vitest'
 import RiskEventsView from '../RiskEventsView.vue'
 
 const messages: Record<string, string> = {
-  'longdao.adminConstruction.badge': '功能建设中',
-  'longdao.adminConstruction.futureCapabilities': '未来能力',
-  'longdao.adminConstruction.statusTitle': '接入状态',
-  'longdao.adminConstruction.statusDescription': '后台服务尚未接入。',
-  'longdao.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
-  'longdao.adminConstruction.riskEvents.title': '风控事件',
-  'longdao.adminConstruction.riskEvents.description': '用于跟踪可疑支付和账户风险。',
-  'longdao.adminConstruction.riskEvents.capabilities.rules': '风险规则',
-  'longdao.adminConstruction.riskEvents.capabilities.alerts': '事件告警',
-  'longdao.adminConstruction.riskEvents.capabilities.reviewQueue': '人工复核',
-  'longdao.adminConstruction.riskEvents.capabilities.reporting': '风险报表',
+  'ggbond.adminConstruction.badge': '功能建设中',
+  'ggbond.adminConstruction.futureCapabilities': '未来能力',
+  'ggbond.adminConstruction.statusTitle': '接入状态',
+  'ggbond.adminConstruction.statusDescription': '后台服务尚未接入。',
+  'ggbond.adminConstruction.disabledNotice': '当前页面不会执行任何管理操作。',
+  'ggbond.adminConstruction.riskEvents.title': '风控事件',
+  'ggbond.adminConstruction.riskEvents.description': '用于跟踪可疑支付和账户风险。',
+  'ggbond.adminConstruction.riskEvents.capabilities.rules': '风险规则',
+  'ggbond.adminConstruction.riskEvents.capabilities.alerts': '事件告警',
+  'ggbond.adminConstruction.riskEvents.capabilities.reviewQueue': '人工复核',
+  'ggbond.adminConstruction.riskEvents.capabilities.reporting': '风险报表',
 }
 
 vi.mock('vue-i18n', async () => {

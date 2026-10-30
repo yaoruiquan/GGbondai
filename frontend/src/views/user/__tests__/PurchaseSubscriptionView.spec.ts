@@ -52,7 +52,7 @@ describe('PurchaseSubscriptionView', () => {
     expect(refreshUser).toHaveBeenCalledOnce()
     expect(getMySubscriptions).toHaveBeenCalledOnce()
     expect(wrapper.text()).toContain('¥88.50')
-    expect(wrapper.text()).toContain('longdao.plans.paymentPendingTitle')
+    expect(wrapper.text()).toContain('ggbond.plans.paymentPendingTitle')
 
     const purchaseButtons = wrapper.findAll('button')
     expect(purchaseButtons.length).toBeGreaterThan(0)

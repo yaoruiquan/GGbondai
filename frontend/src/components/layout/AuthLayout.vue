@@ -2,7 +2,7 @@
   <div class="relative flex min-h-screen items-center justify-center overflow-hidden p-4">
     <!-- Background -->
     <div
-      class="absolute inset-0 bg-gradient-to-br from-gray-50 via-primary-50/40 to-accent-50/40 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950"
+      class="absolute inset-0 bg-gradient-to-br from-gray-50 via-primary-50/40 to-ggbond-yellow-50/60 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950"
     ></div>
 
     <!-- Decorative Elements -->
@@ -15,12 +15,12 @@
         class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-primary-500/15 blur-3xl"
       ></div>
       <div
-        class="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-300/15 blur-3xl"
+        class="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ggbond-yellow-300/20 blur-3xl"
       ></div>
 
       <!-- Grid Pattern -->
       <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(219,39,119,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(219,39,119,0.04)_1px,transparent_1px)] bg-[size:64px_64px]"
+        class="absolute inset-0 bg-[linear-gradient(rgba(226,35,26,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(226,35,26,0.04)_1px,transparent_1px)] bg-[size:64px_64px]"
       ></div>
     </div>
 
@@ -31,7 +31,7 @@
         <!-- Custom Logo or Default Logo -->
         <template v-if="settingsLoaded">
           <div
-            class="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary-50 to-accent-50 shadow-lg shadow-primary-500/30 ring-1 ring-primary-500/15 dark:from-primary-900/20 dark:to-accent-900/20"
+            class="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-ggbond-skin-100 to-ggbond-yellow-50 shadow-lg shadow-primary-500/30 ring-1 ring-primary-500/15 dark:from-primary-900/20 dark:to-ggbond-yellow-900/20"
           >
             <img :src="siteLogo || '/ggbond-logo.svg'" alt="Logo" class="h-full w-full object-contain" />
           </div>
@@ -83,6 +83,6 @@ onMounted(() => {
 
 <style scoped>
 .text-gradient {
-  @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
 }
 </style>

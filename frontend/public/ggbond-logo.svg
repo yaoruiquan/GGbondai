@@ -1,41 +1,105 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 猪猪侠简化 Logo: 圆润粉色猪头 -->
-  <!-- 主头部 -->
-  <circle cx="24" cy="24" r="20" fill="#FF69B4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 150 325 295">
+  <defs>
+    <radialGradient id="gg-red" cx="0.4" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#E3302A"/>
+      <stop offset="0.6" stop-color="#C2161A"/>
+      <stop offset="1" stop-color="#8A0C10"/>
+    </radialGradient>
+    <radialGradient id="gg-red-hood" cx="0.45" cy="0.25" r="0.85">
+      <stop offset="0" stop-color="#E8332B"/>
+      <stop offset="0.7" stop-color="#C4171A"/>
+      <stop offset="1" stop-color="#8A0C10"/>
+    </radialGradient>
+    <radialGradient id="gg-skin" cx="0.45" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#FCE3D2"/>
+      <stop offset="0.65" stop-color="#F6CDB4"/>
+      <stop offset="1" stop-color="#E9AE93"/>
+    </radialGradient>
+    <radialGradient id="gg-snout" cx="0.45" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#F9C7BA"/>
+      <stop offset="1" stop-color="#E79C8D"/>
+    </radialGradient>
+    <radialGradient id="gg-ear" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#FAD7C7"/>
+      <stop offset="1" stop-color="#E8A996"/>
+    </radialGradient>
+    <linearGradient id="gg-yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE45C"/>
+      <stop offset="1" stop-color="#F5C400"/>
+    </linearGradient>
+    <radialGradient id="gg-iris" cx="0.5" cy="0.6" r="0.6">
+      <stop offset="0" stop-color="#7A4A2C"/>
+      <stop offset="1" stop-color="#3A2014"/>
+    </radialGradient>
+    <radialGradient id="gg-cheek" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F29C90" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#F29C90" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="gg-head">
+    <!-- 头套后层：包住整个头 -->
+    <path d="M60 292 C56 222 102 160 202 156 C302 160 350 222 346 292 C346 324 340 344 330 356 L76 356 C66 344 60 324 60 292 Z" fill="url(#gg-red-hood)"/>
 
-  <!-- 左耳朵 -->
-  <ellipse cx="12" cy="12" rx="6" ry="8" fill="#FF8DC7" transform="rotate(-20 12 12)"/>
+    <!-- 猪耳朵（左），右耳镜像并略低 -->
+    <g id="gg-ear-left" class="gg-ear">
+      <path d="M104 196 C88 180 62 178 52 196 C44 214 58 238 88 252 C98 236 106 214 104 196 Z" fill="url(#gg-ear)"/>
+      <path d="M96 202 C82 192 68 192 61 204 C57 217 68 233 85 242 Z" fill="#E8A090" opacity="0.6"/>
+    </g>
+    <g class="gg-ear">
+      <use href="#gg-ear-left" transform="translate(410 10) scale(-1 1)"/>
+    </g>
 
-  <!-- 右耳朵 -->
-  <ellipse cx="36" cy="12" rx="6" ry="8" fill="#FF8DC7" transform="rotate(20 36 12)"/>
+    <!-- 头套内衬白边 -->
+    <path d="M68 250 C64 270 64 296 68 312 L78 308 C74 292 74 270 78 254 Z" fill="#F4E9E4"/>
+    <path d="M337 250 C341 270 341 296 337 312 L327 308 C331 292 331 270 327 254 Z" fill="#F4E9E4"/>
 
-  <!-- 左眼睛 -->
-  <circle cx="17" cy="22" r="3.5" fill="#000"/>
-  <circle cx="18" cy="21" r="1.2" fill="#FFF"/>
+    <!-- 脸 -->
+    <path d="M66 330 C62 284 98 244 202 238 C306 244 344 284 340 330 C344 372 326 410 290 424 C262 434 232 438 202 438 C170 438 140 434 112 424 C78 410 62 372 64 318 Z" fill="url(#gg-skin)"/>
+    <ellipse cx="102" cy="360" rx="34" ry="24" fill="url(#gg-cheek)"/>
+    <ellipse cx="300" cy="360" rx="34" ry="24" fill="url(#gg-cheek)"/>
 
-  <!-- 右眼睛 -->
-  <circle cx="31" cy="22" r="3.5" fill="#000"/>
-  <circle cx="32" cy="21" r="1.2" fill="#FFF"/>
+    <!-- 头套前沿：压在额头上，中间下凹 -->
+    <path d="M70 266 C76 200 126 162 202 160 C280 162 330 200 336 266 C314 248 288 242 262 244 C238 246 220 240 202 232 C184 240 166 246 142 244 C116 242 92 248 70 266 Z" fill="url(#gg-red-hood)"/>
+    <path d="M120 186 C150 172 180 168 202 168 C226 168 256 172 284 186" fill="none" stroke="#fff" stroke-opacity="0.18" stroke-width="5" stroke-linecap="round"/>
 
-  <!-- 鼻子 -->
-  <ellipse cx="24" cy="30" rx="5" ry="4" fill="#FF1493"/>
-  <circle cx="22" cy="29" r="1" fill="#FFF" opacity="0.6"/>
+    <!-- 黄色眉饰 -->
+    <path d="M104 210 C114 186 150 176 182 186 C188 196 186 206 178 212 C154 204 128 206 108 220 Z" fill="url(#gg-yellow)" stroke="#9E0F12" stroke-width="5" stroke-linejoin="round" paint-order="stroke"/>
+    <path d="M302 210 C292 186 256 176 224 186 C218 196 220 206 228 212 C252 204 278 206 298 220 Z" fill="url(#gg-yellow)" stroke="#9E0F12" stroke-width="5" stroke-linejoin="round" paint-order="stroke"/>
+    <path d="M182 190 C190 194 196 200 202 210 C208 200 214 194 223 190 C214 182 190 182 182 190 Z" fill="#B5160F"/>
 
-  <!-- 嘴巴（笑容） -->
-  <path d="M 18 33 Q 24 36 30 33" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- 眉毛 -->
+    <path d="M124 270 C134 260 152 258 166 264" fill="none" stroke="#6B3A22" stroke-width="5" stroke-linecap="round"/>
+    <path d="M238 266 C252 260 270 262 280 272" fill="none" stroke="#6B3A22" stroke-width="5" stroke-linecap="round"/>
 
-  <!-- 腮红 -->
-  <ellipse cx="12" cy="28" rx="3" ry="2" fill="#FF1493" opacity="0.3"/>
-  <ellipse cx="36" cy="28" rx="3" ry="2" fill="#FF1493" opacity="0.3"/>
+    <!-- 眼睛 -->
+    <g id="gg-eyes">
+      <g class="gg-eye">
+        <ellipse cx="146" cy="304" rx="25" ry="23" fill="#fff"/>
+        <g class="gg-pupil">
+          <circle cx="148" cy="305" r="16" fill="url(#gg-iris)"/>
+          <circle cx="148" cy="305" r="9" fill="#1F1410"/>
+          <circle cx="153" cy="299" r="4.5" fill="#fff"/>
+          <circle cx="143" cy="310" r="1.8" fill="#fff" opacity="0.8"/>
+        </g>
+      </g>
+      <g class="gg-eye">
+        <ellipse cx="256" cy="308" rx="25" ry="23" fill="#fff"/>
+        <g class="gg-pupil">
+          <circle cx="254" cy="309" r="16" fill="url(#gg-iris)"/>
+          <circle cx="254" cy="309" r="9" fill="#1F1410"/>
+          <circle cx="259" cy="303" r="4.5" fill="#fff"/>
+          <circle cx="249" cy="314" r="1.8" fill="#fff" opacity="0.8"/>
+        </g>
+      </g>
+    </g>
 
-  <!-- 紫蓝色光环（科技感） -->
-  <circle cx="24" cy="24" r="22" stroke="#6A5ACD" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="4 4">
-    <animateTransform
-      attributeName="transform"
-      type="rotate"
-      from="0 24 24"
-      to="360 24 24"
-      dur="20s"
-      repeatCount="indefinite"/>
-  </circle>
+    <!-- 猪鼻子 -->
+    <ellipse cx="196" cy="352" rx="50" ry="34" fill="url(#gg-snout)"/>
+    <ellipse cx="186" cy="338" rx="24" ry="9" fill="#fff" opacity="0.22"/>
+    <ellipse cx="180" cy="354" rx="6" ry="11" fill="#4A2418"/>
+    <ellipse cx="213" cy="354" rx="6" ry="11" fill="#4A2418"/>
+
+    <!-- 嘴 -->
+    <path class="gg-mouth" d="M150 374 C170 390 214 394 244 376" fill="none" stroke="#7A3A28" stroke-width="4" stroke-linecap="round"/>
+  </g>
 </svg>

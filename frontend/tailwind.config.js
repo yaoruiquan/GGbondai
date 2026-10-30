@@ -1,47 +1,42 @@
-// 猪猪侠主题色阶。primary/accent 与 ggbond-* 共用同一份数据。
-// 500 及以上与白色对比度 >= 4.5（WCAG AA），可用于白字按钮和白底正文；
-// 品牌亮粉 #FF69B4 放在 400，只用于装饰（光晕、Logo、暗色模式文字）。
-const pink = {
-  50: '#FFF0F7',
-  100: '#FFE1EF',
-  200: '#FFC2DF',
-  300: '#FF94C6',
-  400: '#FF69B4',
-  500: '#DB2777',
-  600: '#C70A72',
-  700: '#A50D5E',
-  800: '#8A0A50',
-  900: '#6B0842',
-  950: '#42042A'
+// 猪猪侠主题色阶（取色自角色原图）。primary 与 ggbond-red 共用同一份数据。
+// red 500 及以上与白色对比度 >= 4.5（WCAG AA），可用于白字按钮和白底正文。
+const red = {
+  50: '#FFF3F1',
+  100: '#FFE3DF',
+  200: '#FFC4BC',
+  300: '#FF978A',
+  400: '#F65A4B',
+  500: '#E2231A', // 头套红
+  600: '#C8191A',
+  700: '#A81313',
+  800: '#8A0F11',
+  900: '#6E0D0F',
+  950: '#3F0506'
 }
 
-const purple = {
-  50: '#F5F3FF',
-  100: '#EDE9FE',
-  200: '#DDD6FE',
-  300: '#C4B5FD',
-  400: '#A78BFA',
-  500: '#6A5ACD',
-  600: '#5B4BC6',
-  700: '#4B3BB8',
-  800: '#3C2C9E',
-  900: '#4B0082',
-  950: '#2D004E'
+// 眉饰黄。只配深色文字（与白字对比度不足）。
+const yellow = {
+  50: '#FFFBEA',
+  100: '#FFF3C4',
+  200: '#FFE685',
+  300: '#FFD84A',
+  400: '#FFC81F',
+  500: '#FFB703',
+  600: '#DB8C00',
+  700: '#B26500',
+  800: '#8F4E06',
+  900: '#76410B',
+  950: '#442100'
 }
 
-// 金色只配深色文字（#FFD700 与白字对比度仅 1.4）
-const gold = {
-  50: '#FFFBEB',
-  100: '#FEF3C7',
-  200: '#FDE68A',
-  300: '#FCD34D',
-  400: '#FBBF24',
-  500: '#FFD700',
-  600: '#D97706',
-  700: '#B45309',
-  800: '#92400E',
-  900: '#78350F',
-  950: '#451A03'
+// 角色肤色，用于浅色底和卡片
+const skin = {
+  50: '#FFFAF6',
+  100: '#FFF3EA',
+  200: '#FCE3D2',
+  300: '#F6CDB4',
+  400: '#EBA08A',
+  500: '#D9806A'
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -51,24 +46,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: pink,
-        accent: purple,
-        'ggbond-pink': pink,
-        'ggbond-purple': purple,
-        'ggbond-gold': gold,
-        'ggbond-sky': {
-          50: '#F0F9FF',
-          100: '#E0F2FE',
-          200: '#BAE6FD',
-          300: '#7DD3FC',
-          400: '#38BDF8',
-          500: '#00CED1',
-          600: '#0284C7',
-          700: '#0369A1',
-          800: '#075985',
-          900: '#0C4A6E',
-          950: '#082F49'
+        primary: red,
+        // 辅助色 - 中性灰蓝（与改色前一致）
+        accent: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617'
         },
+        'ggbond-red': red,
+        'ggbond-yellow': yellow,
+        'ggbond-skin': skin,
         // 深色模式背景
         dark: {
           50: '#f8fafc',
@@ -103,29 +98,23 @@ export default {
       boxShadow: {
         glass: '0 8px 32px rgba(0, 0, 0, 0.08)',
         'glass-sm': '0 4px 16px rgba(0, 0, 0, 0.06)',
-        glow: '0 0 20px rgba(219, 39, 119, 0.3)',
-        'glow-lg': '0 0 40px rgba(219, 39, 119, 0.4)',
-        'glow-pink': '0 4px 20px rgba(219, 39, 119, 0.35)',
-        'glow-purple': '0 4px 20px rgba(106, 90, 205, 0.35)',
-        'glow-gold': '0 4px 20px rgba(255, 215, 0, 0.35)',
+        glow: '0 0 20px rgba(226, 35, 26, 0.3)',
+        'glow-lg': '0 0 40px rgba(226, 35, 26, 0.4)',
+        'glow-red': '0 4px 20px rgba(226, 35, 26, 0.35)',
+        'glow-yellow': '0 4px 20px rgba(255, 183, 3, 0.45)',
         card: '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
-        'card-ggbond': '0 4px 16px rgba(219, 39, 119, 0.12), 0 2px 8px rgba(106, 90, 205, 0.08)',
-        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-        'inner-glow-pink': 'inset 0 2px 8px rgba(219, 39, 119, 0.15)',
-        'button-ggbond': '0 4px 12px rgba(219, 39, 119, 0.3)',
-        'button-gold': '0 4px 12px rgba(255, 215, 0, 0.4)'
+        'card-ggbond': '0 8px 24px rgba(168, 19, 19, 0.10), 0 2px 6px rgba(168, 19, 19, 0.06)',
+        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-primary': 'linear-gradient(135deg, #DB2777 0%, #C70A72 100%)',
-        'gradient-purple': 'linear-gradient(135deg, #6A5ACD 0%, #4B0082 100%)',
-        'gradient-gold': 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #E2231A 0%, #A81313 100%)',
         'gradient-dark': 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
         'gradient-glass':
           'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
         'mesh-gradient':
-          'radial-gradient(at 40% 20%, rgba(255, 105, 180, 0.15) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(106, 90, 205, 0.12) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(255, 215, 0, 0.08) 0px, transparent 50%)'
+          'radial-gradient(at 40% 20%, rgba(226, 35, 26, 0.12) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(255, 183, 3, 0.10) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(226, 35, 26, 0.06) 0px, transparent 50%)'
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-out',
@@ -141,7 +130,8 @@ export default {
         'wiggle': 'wiggle 1s ease-in-out infinite',
         'float': 'float 3s ease-in-out infinite',
         'spin-slow': 'spin 3s linear infinite',
-        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite'
+        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+        twinkle: 'twinkle 3s ease-in-out infinite'
       },
       keyframes: {
         fadeIn: {
@@ -169,8 +159,8 @@ export default {
           '100%': { backgroundPosition: '200% 0' }
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(219, 39, 119, 0.3)' },
-          '100%': { boxShadow: '0 0 30px rgba(219, 39, 119, 0.5)' }
+          '0%': { boxShadow: '0 0 20px rgba(226, 35, 26, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(226, 35, 26, 0.5)' }
         },
         // 猪猪侠主题新增动画
         wiggle: {
@@ -180,6 +170,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' }
+        },
+        twinkle: {
+          '0%, 100%': { opacity: '0.2', transform: 'scale(0.8)' },
+          '50%': { opacity: '1', transform: 'scale(1)' }
         }
       },
       backdropBlur: {

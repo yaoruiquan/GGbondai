@@ -22,7 +22,7 @@
           <div class="absolute inset-0 flex items-center justify-center">
             <!-- 迷路的猪猪侠 -->
             <div
-              class="flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-primary-50 to-accent-50 shadow-lg shadow-primary-500/30 ring-1 ring-primary-500/15 dark:from-primary-900/30 dark:to-accent-900/30"
+              class="flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-ggbond-skin-100 to-ggbond-yellow-50 shadow-lg shadow-primary-500/30 ring-1 ring-primary-500/15 dark:from-primary-900/30 dark:to-ggbond-yellow-900/30"
             >
               <img src="/ggbond-logo.svg" alt="" class="h-20 w-20 animate-wiggle motion-reduce:animate-none" />
             </div>

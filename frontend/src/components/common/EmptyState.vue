@@ -2,7 +2,7 @@
   <div class="empty-state">
     <!-- Icon -->
     <div
-      class="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-900/20 dark:to-accent-900/20"
+      class="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-ggbond-skin-100 to-ggbond-yellow-50 dark:from-primary-900/20 dark:to-ggbond-yellow-900/20"
     >
       <slot name="icon">
         <component v-if="icon" :is="icon" class="empty-state-icon h-10 w-10" aria-hidden="true" />

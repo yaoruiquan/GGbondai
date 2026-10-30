@@ -123,7 +123,7 @@ describe('admin order currency display', () => {
     // pay_amount follows order currency (unchanged)
     expect(text).toContain('$108.00')
     expect(text).toContain('¥108.00')
-    // 龙道 AI 用户端：到账金额（USD 存储值）按显示汇率换算成 ¥（默认 7.15）
+    // GGbond AI 用户端：到账金额（USD 存储值）按显示汇率换算成 ¥（默认 7.15）
     expect(text).toContain('¥715.00')
   })
 
